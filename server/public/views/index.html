@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+  <head>
+    <meta charset="utf-8">
+    <script src="vendors/angular.min.js" charset="utf-8"></script>
+    <script src="scripts/super_script.js" charset="utf-8"></script>
+    <link rel="stylesheet" type="text/css" href="vendors/bootstrap.min.css" />
+    <title>SuperHero Powers Database</title>
+  </head>
+  <body>
+
+    <div ng-controller="superController">
+      <h3>Add New Hero/Heroine</h3>
+
+      <form name="newHeroForm">
+        <input type="text" ng-model="aliasIn" value="" placeholder="Alias" />
+        <input type="text" ng-model="firstNameIn" value="" placeholder="First Name"  />
+        <input type="text" ng-model="lastNameIn" value="" placeholder="Last Name"  />
+        <input type="text" ng-model="cityIn" value="" placeholder="City"  />
+
+        <label for="superPower"> Choose Power: </label>
+          <select name="superPower" ng-model="superPower">
+            <option value="Select Power">Select Power</option>
+            <option value="Accelerated Healing">Accelerated Healing</option>
+            <option value="Animal Affinity">Animal Affinity</option>
+            <option value="Flight">Flight</option>
+            <option value="Heat Vision">Heat Vision</option>
+            <option value="Invisibility">Invisibility</option>
+            <option value="Power Blast">Power Blast</option>
+            <option value="Super Speed">Super Speed</option>
+            <option value="Super Strength">Super Strength</option>
+          </select><br>
+        <button ng-click="saveHero()">Save/Add Hero</button>
+        </form>
+
+  <h2>Current Super People:</h2>
+  <table id="heroTable">
+    <thead>
+        <tr>
+          <th>Alias</th>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>City</th>
+          <th>Super Power</th>
+        </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat= "heroes in superPersonArray">
+        <td>{{heroes.alias}}</td>
+        <td>{{superPerson.fName}}</td>
+        <td>{{superPerson.lName}}</td>
+        <td>{{superPerson.city}}</td>
+        <td>{{superPerson.superPower}}</td>
+      </tr>
+        <input type="button" value="remove" class="btn btn-primary" ng-click="removeHero($index)" />
+
+    </tbody>
+  </table>
+
+
+</div>
+  </body>
+</html>
